@@ -9,8 +9,8 @@ const parser = new parsers.Readline({
     delimiter: '\r\n'
 });
 
-var port = new SerialPort("COM3",{ 
-    baudRate: 9600,
+var port = new SerialPort("COM7",{ 
+    baudRate: 115200,
     dataBits: 8,
     parity: 'none',
     stopBits: 1,
@@ -35,8 +35,10 @@ io.on('connection', function(socket) {
 parser.on('data', function(data) {
     
     console.log('Received data from port: ' + data);
+    console.log(data)
     
     io.emit('data', data);
+    console.log(data)
     
 });
 
