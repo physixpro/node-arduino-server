@@ -28,12 +28,7 @@ var app = http.createServer(function(req, res) {
     res.end(index);
 });
 
-// app.get('http://localhost:3001/', async(req, res) => {
-//     res.writeHead(200, { 'Content-Type': 'text/html' });
-//     res.end(index);
-//     res.send("GET Request Called")
-//     res.json("Does this even work?")
-// })
+
 // const io = require('socket.io').listen(app);
 // io.onconnection('connection', function(socket) {
 //     console.log('Node is listening to port');
