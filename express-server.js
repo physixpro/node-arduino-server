@@ -24,7 +24,7 @@ const listen = new SerialPort("COM7", {
     flowControl: false
 });
 
-listen.pipe(parser);
+app.pipe(parser);
 
 
 app.get('/', function (req, res) {
