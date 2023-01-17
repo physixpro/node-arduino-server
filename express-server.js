@@ -24,7 +24,7 @@ const listen = new SerialPort("COM7", {
     flowControl: false
 });
 
-app.pipe(parser);
+listen.pipe(parser);
 
 
 app.get('/', function (req, res) {
@@ -45,10 +45,10 @@ io.on('connection', function(socket){
 // });
 
 
-// const io = require('socket.io').listen(apply);
-// io.onconnection('connection', function(socket) {
-//     console.log('Node is listening to socket io port');
-// })
+const io = require('socket.io').listen(app);
+io.onconnection('connection', function(socket) {
+    console.log('Node is listening to socket io port');
+})
 
 parser.on('data', function(data){
     console.log('Received data from port: ' + data);

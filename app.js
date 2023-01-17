@@ -20,6 +20,9 @@ var port = new SerialPort("COM7",{
 port.pipe(parser);
 
 var app = http.createServer(function(req, res) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+res.setHeader('Access-Control-Max-Age', 2592000); // 30 days
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.end(index);
 });
