@@ -2,7 +2,8 @@
 var http = require('http');
 const express = require('express')
 const cors = require('cors')
-// const app = express()
+const app = express()
+app.use(cors())
 var fs = require('fs');
 var index = fs.readFileSync( 'index.html');
 
@@ -23,15 +24,15 @@ const listen = new SerialPort("COM7", {
 
 listen.pipe(parser);
 
-var app = http.createServer(function(req, res) {
+var apply = http.createServer(function(req, res) {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.end(index);
 });
 
 
-// const io = require('socket.io').listen(app);
+// const io = require('socket.io').listen(apply);
 // io.onconnection('connection', function(socket) {
-//     console.log('Node is listening to port');
+//     console.log('Node is listening to socket io port');
 // })
 
 parser.on('data', function(data){
@@ -44,4 +45,4 @@ parser.on('data', function(data){
 
 
 const port = process.env.PORT || 3001
-app.listen(port, () => console.log(`server is running on port ${port}...`))
+apply.listen(port, () => console.log(`server is running on port ${port}...`))
