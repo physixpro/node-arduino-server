@@ -27,7 +27,7 @@ const listen = new SerialPort("COM7", {
 listen.pipe(parser);
 
 
-app.get('/', function (req, res) {
+app.get('http://localhost:3001', function (req, res) {
     console.log("Homepage");
     res.writeHead(200, +  {'Content-Type': 'text/html'});
     res.end(index);
